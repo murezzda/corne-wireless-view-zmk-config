@@ -13,59 +13,76 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// ------------------------------------------------------------------------------------------
+// | SPC  |  Q   |  W   |  E   |  R     |   T    |   |   Y    |   U     |  I   |  O   |  P     | BSLH  |
+// |CW_TOG| A/ALT| S/GUI| D/SFT| F/CTL  |   G    |   |   H    |  J/CTL  | K/SFT| L/GUI| :/ALT  | DQT   |
+// | MO4  |  Z   |  X   |  C   |  V     |   B    |   |   N    |   M     |  ,   |  .   | /      | TRANS |
+//                      | MO3  | L2/TAB | L1/RET |   | L1/SPC | L2/BSPC | MO3  |
                         display-name = "Base";
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+    &kp SPACE   &kp Q       &kp W       &kp E        &kp R        &kp T  &kp Y  &kp U        &kp I        &kp O       &kp P           &kp BSLH
+    &caps_word  &mt LALT A  &mt LGUI S  &mt LSHFT D  &mt LCTRL F  &kp G  &kp H  &mt RCTRL J  &mt RSHFT K  &mt RGUI L  &mt RALT COLON  &kp DQT
+    &mo 4       &kp Z       &kp X       &kp C        &kp V        &kp B  &kp N  &kp M        &kp COMMA    &kp DOT     &kp FSLH        &trans
+                                        &mo 3        &lt 2 TAB    &lt 1 RET     &lt 1 SPACE  &lt 2 BSPC   &mo 3
                         >;
                 };
-                lower_layer {
+
+                movement_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        display-name = "Lower";
+// | MBTN3|  -  |  -  | DQT | PRCNT|  -  |   |  -  | PGUP | PGDN |  -  |  -  |  -  |
+// |  -   | ALT | GUI | SHFT| CTRL |  -  |   | LEFT| DOWN |  UP  | RGHT|  -  |  -  |
+// |  -   |  -  |  -  |  S  |  V   |  -  |   |LC(W)| LC(B)|  -   |  -  |  -  |  -  |
+//                    |  -  |  -   | ESC |   | ESC |  -   |  -   |
+                        display-name = "Move";
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+    &mkp MB3  &trans    &trans    &kp DQT    &kp PRCNT  &trans      &trans     &kp PG_UP  &kp PG_DN  &trans     &trans  &trans
+    &trans    &kp LALT  &kp LGUI  &kp LSHFT  &kp LCTRL  &trans      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
+    &trans    &trans    &trans    &kp S      &kp V      &trans      &kp LC(W)  &kp LC(B)  &trans     &trans     &trans  &trans
+                                  &trans     &trans     &kp ESC     &kp ESC    &trans     &trans
                         >;
                 };
 
-                raise_layer {
+                symbols_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        display-name = "Raise";
+// |  -   |  -  |  -  |  -  |  -  |  -  |   | ASTR| LABK| RABK| PLUS|  AT |  -  |
+// |  -   | ALT | GUI | SHFT| CTRL|  -  |   | MINS| LBRC| RBRC| DLR | SCLN| QUOT|
+// | BOOT |  -  |  -  |  -  |  -  |  -  |   | UNDS| LCBR| RCBR| TILD|  -  |  -  |
+//                    |  -  | --- | --- |   | --- | --- |  -  |
+                        display-name = "Symb";
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans     &trans    &trans    &trans    &trans    &kp EQUAL  &kp ASTRK    &kp LT       &kp GT    &kp HASH  &kp AT    &trans
+   &trans     &kp LALT  &kp LGUI  &kp LSHFT &kp LCTRL &kp PLUS   &kp MINUS    &kp LBKT     &kp RBKT  &kp DLLR  &kp SEMI  &kp SQT
+   &bootloader &trans   &trans    &trans    &trans    &trans     &kp UNDER    &kp LBRC     &kp RBRC  &kp TILDE &trans    &trans
+                                  &trans    &trans    &trans     &trans       &trans       &trans
                         >;
                 };
-
-                extra_1 {
-                        status = "reserved";
+                number_layer {
+// -----------------------------------------------------------------------------------------
+// | !    | @   | #   | $   | %   | ^   |   | &   | *   | (   | )   | _   | +   |
+// | -    | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | -   |
+// | -    | F1  | F2  | F3  | F4  | F5  |   | F6  | F7  | F8  | F9  | F10 | -   |
+//                    | -   | -   | -   |   | -   | -   | -   |
+                        display-name = "Nums";
+                        bindings = <
+    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp UNDER  &kp PLUS
+    &trans    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5     &kp N6    &kp N7     &kp N8    &kp N9    &kp N0     &trans
+    &trans    &kp F1  &kp F2    &kp F3    &kp F4     &kp F5     &kp F6    &kp F7     &kp F8    &kp F9    &kp F10    &trans
+                                &trans    &trans     &trans     &trans    &trans     &trans
+                        >;
                 };
-
-                extra_2 {
-                        status = "reserved";
-                };
-
-                extra_3 {
-                        status = "reserved";
+                function_layer {
+// -----------------------------------------------------------------------------------------
+// |  F1  | F2  | F3  | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |  1  |  2  |  3  |  4  |  5  |  6  |
+// |  -   |  -  |  -  |  -  |  -  |  -  |   |  7  |  8  |  9  |  0  |  -  |  -  |
+//                    |  -  |  -  | --- |   | --- |  -  |  -  |
+                        display-name = "Func";
+                        bindings = <
+    &kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+    &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp N1  &kp N2  &kp N3  &kp N4   &kp N5   &kp N6
+    &trans      &trans        &trans        &trans        &trans        &trans        &kp N7  &kp N8  &kp N9  &kp N0   &trans   &trans
+                                            &trans        &trans        &trans        &trans  &trans  &trans
+                        >;
                 };
         };
 };
