@@ -55,13 +55,13 @@
 
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// |  -   |  -  |  -  |  -  |  -  |  -  |   | ASTR| LABK| RABK| PLUS|  AT |  -  |
+// |  -   |  -  |  -  |  -  |  -  |  -  |   | ASTR| LPAR| RPAR| PLUS|  AT |  -  |
 // |  -   | ALT | GUI | SHFT| CTRL|  -  |   | MINS| LBRC| RBRC| DLR | SCLN| QUOT|
 // | BOOT |  -  |  -  |  -  |  -  |  -  |   | UNDS| LCBR| RCBR| TILD|  -  |  -  |
 //                    |  -  | --- | --- |   | --- | --- |  -  |
                         display-name = "Symb";
                         bindings = <
-   &trans     &trans    &trans    &trans    &trans    &kp EQUAL  &kp ASTRK    &kp LT       &kp GT    &kp HASH  &kp AT    &trans
+   &trans     &trans    &trans    &trans    &trans    &kp EQUAL  &kp ASTRK    &kp LPAR     &kp RPAR    &kp HASH  &kp AT    &trans
    &trans     &kp LALT  &kp LGUI  &kp LSHFT &kp LCTRL &kp PLUS   &kp MINUS    &kp LBKT     &kp RBKT  &kp DLLR  &kp SEMI  &kp SQT
    &bootloader &trans   &trans    &trans    &trans    &trans     &kp UNDER    &kp LBRC     &kp RBRC  &kp TILDE &trans    &trans
                                   &trans    &trans    &trans     &trans       &trans       &trans
