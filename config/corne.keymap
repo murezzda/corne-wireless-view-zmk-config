@@ -43,13 +43,13 @@
 // | MBTN3|  -  |  -  | DQT | PRCNT|  -  |   |  -  | PGDN | PGUP |  -  |  -  |  -  |
 // |  -   | ALT | GUI | SHFT| CTRL |  -  |   | LEFT| DOWN |  UP  | RGHT|  -  |  -  |
 // |  -   |  -  |  -  |  S  |  V   |  -  |   |LC(W)| LC(B)|  -   |  -  |  -  |  -  |
-//                    |  -  |  -   | ESC |   | ESC |  -   |  -   |
+//                    |  -  |  -   | ESC |   | ESC | BSPC |  -   |
                         display-name = "Move";
                         bindings = <
     &trans    &trans    &trans    &kp DQT    &kp PRCNT  &trans      &trans     &kp PG_DN  &kp PG_UP  &trans     &trans  &trans
     &trans    &kp LALT  &kp LGUI  &kp LSHFT  &kp LCTRL  &trans      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
     &trans    &trans    &trans    &kp S      &kp V      &trans      &kp LC(W)  &kp LC(B)  &trans     &trans     &trans  &trans
-                                  &trans     &trans     &kp ESC     &kp ESC    &trans     &trans
+                                  &trans     &trans     &kp ESC     &kp ESC    &kp BSPC   &trans
                         >;
                 };
 
